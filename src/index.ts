@@ -19,6 +19,6 @@ app.get('/', async (_req: Request, res: Response) => {
 });
 console.log('PORT utilisé:', process.env.PORT);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Serveur tournant sur le port ${PORT}`);
 });
