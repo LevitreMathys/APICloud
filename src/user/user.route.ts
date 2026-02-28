@@ -20,42 +20,42 @@ userRouter.get('/', async (_req: Request, res: Response) => {
     }
 });
 
+
 userRouter.post('/create', async (req: Request, res: Response) => {
-    const { name, email } = req.body;
+  const { lastname, firstname, pseudo, email, password } = req.body;
 
-    try {
-    
-        const user = await prisma.user.findUnique({
-            where: {
-                name,
-                email
-            }
-        });
+  try {
+    // Vérifie si l'utilisateur existe déjà
+    const existingUser = await prisma.user.findUnique({
+      where: { email }
+    });
 
-        if (!user) {
-            return res.status(400).json({
-                error: "[ERREUR] Utilisateur déjà existant"
-            });
-        }
-
-        await prisma.user.create({
-            data: {
-                name,
-                email
-            }
-        });
-        
-        return res.status(201).json({
-            message: "Utilisateur créé avec succès"
-        });
-        
-    } catch (err) {
-        return res.status(500).json({
-            error: "[ERREUR] Erreur serveur"
-        });
+    if (existingUser) {
+      return res.status(400).json({
+        error: "[ERREUR] Email déjà utilisé"
+      });
     }
-});
 
+    await prisma.user.create({
+      data: {
+        lastname,
+        firstname,
+        pseudo,
+        email,
+        password
+      }
+    });
+
+    return res.status(201).json({
+      message: "Utilisateur créé avec succès"
+    });
+
+  } catch (err) {
+    return res.status(500).json({
+      error: "[ERREUR] Erreur serveur"
+    });
+  }
+});
 
 userRouter.delete('/delete', async (req: Request, res: Response) => {
     const id = Number(req.query.id);
