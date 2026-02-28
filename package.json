@@ -27,13 +27,16 @@
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.4.2",
     "@prisma/adapter-pg": "^7.4.2",
-    "@types/express": "^5.0.6",
+    "@prisma/client": "^7.4.2",
     "better-sqlite3": "^12.6.2",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "pinia": "^3.0.4"
+    "pinia": "^3.0.4",
+    "prisma": "^7.4.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
     "@types/node": "^25.3.2",
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
@@ -41,6 +44,7 @@
     "nodemon": "^3.1.14",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
   }
 }
