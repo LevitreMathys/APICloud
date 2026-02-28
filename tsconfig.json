@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
+    "moduleResolution": "NodeNext",
     "skipLibCheck": true
   },
   "include": ["src/**/*", "prisma.config.ts"],
