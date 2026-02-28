@@ -1,4 +1,4 @@
-import { userRouter } from './user/user.route.ts';
+import { userRouter } from './user/user.route';
 import express from 'express';
 import cors from 'cors';
 import type { Request, Response } from 'express';
